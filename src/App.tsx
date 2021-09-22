@@ -1,9 +1,7 @@
 
 import './App.css';
-import * as service from './copypaste/service/copypaste';
 
 import Offical from './copypaste/Official';
-import { Button } from 'antd';
 
 function App() {
   return (

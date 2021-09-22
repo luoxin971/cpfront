@@ -8,7 +8,7 @@ let editor = null
 function Offical() {
 
     const [content, setContent] = useState('')
-    const [savecontent, setSave] = useState('');
+    const [saveContent] = useState('');
     const [preview, setPreview] = useState(false);
     const [list, setList] = useState([]);
 
@@ -65,14 +65,14 @@ function Offical() {
                     type='primary'
                     onClick={async () => {
                         setPreview(false);
-                        let add = await service.addContent({text: content});
+                        await service.addContent({text: content});
                         service.getAll().then(res => {
                             console.log("getall res: ", res.data);
                             setList(res.data);
                         })
                     }}>保存</Button>
             </Space>
-            <div dangerouslySetInnerHTML={{ __html: savecontent }} style={{ textAlign: 'left' }}></div>
+            <div dangerouslySetInnerHTML={{ __html: saveContent }} style={{ textAlign: 'left' }}></div>
             <Row gutter={16}>
                 {
                     list.map((value, index) => {
